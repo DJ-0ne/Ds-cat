@@ -89,9 +89,9 @@ class BinaryTree {
 
         // Traverse the tree to find the node to delete
         if (value < root.v) {
-            root.l = delete(root.l, value);  // Search in the left subtree
+            root.l = delete(root.l, value);  
         } else if (value > root.v) {
-            root.r = delete(root.r, value); // Search in the right subtree
+            root.r = delete(root.r, value);
         } else {
             // Node to be deleted found
             if (root.l == null) {
@@ -101,9 +101,9 @@ class BinaryTree {
             }
 
             // Case: Node with two children
-            Node successor = findMin(root.r);  // Find inorder successor
-            root.v = successor.v;          // Replace value with successor
-            root.r = delete(root.r, successor.v); // Delete successor
+            Node successor = findMin(root.r); 
+            root.v = successor.v;         
+            root.r = delete(root.r, successor.v); 
         }
         return root;
     }
@@ -124,37 +124,34 @@ public class Main {
         Node root = null;
 
         // Insert nodes into the binary tree
-        root = tree.insert(root, 20);
+        root = tree.insert(root, 22);
         root = tree.insert(root, 25);
-        root = tree.insert(root, 15);
+        root = tree.insert(root, 4);
         root = tree.insert(root, 3);
         root = tree.insert(root, 7);
-        root = tree.insert(root, 12);
+        root = tree.insert(root, 27);
         root = tree.insert(root, 18);
+        
+         System.out.println("\nSearch for value 7:");
+        System.out.println(tree.search(root, 7));  
 
         // Display the tree using different traversals
-        System.out.println("Inorder Traversal:");
-        tree.inorderTraversal(root);  // Output: 3 5 7 10 12 15 18
 
-        System.out.println("\nPreorder Traversal:");
-        tree.preorderTraversal(root); // Output: 10 5 3 7 15 12 18
+          System.out.println("\nPreorder Traversal:");
+        tree.preorderTraversal(root);
 
         System.out.println("\nPostorder Traversal:");
-        tree.postorderTraversal(root); // Output: 3 7 5 12 18 15 10
-
-        // Search for a specific value
-        System.out.println("\nSearch for value 7:");
-        System.out.println(tree.search(root, 7));  // Output: true
-
-        System.out.println("Search for value 20:");
-        System.out.println(tree.search(root, 20)); // Output: false
+        tree.postorderTraversal(root);
+        
+    System.out.println("Inorder Traversal:");
+        tree.inorderTraversal(root);  
 
         // Delete a node from the binary tree
-        System.out.println("\nDeleting node with value 5:");
-        root = tree.delete(root, 5);
+        System.out.println("\nDeleting node with value 80:");
+        root = tree.delete(root, 80);
 
         // Display the tree after deletion
         System.out.println("Inorder Traversal after deletion:");
-        tree.inorderTraversal(root);  // Output: 3 7 10 12 15 18
+           tree.inorderTraversal(root);  
     }
 }
